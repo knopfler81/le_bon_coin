@@ -1,0 +1,16 @@
+<h1>Demandes</h1>
+
+
+
+  <% @adverts.each do |advert| %>
+    <% if advert.published? %>
+      <%= link_to advert_path(advert) do  %>
+        <h4> <%= advert.title %></h4>
+        <b><%= advert.price %></b>
+        <% advert.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 250, height: 200, crop:"fill" %>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>
+

@@ -6,6 +6,14 @@ class AdvertsController < ApplicationController
     @adverts = Advert.all
   end
 
+  def offers
+    @adverts = Advert.all.where(role: 1)
+  end
+
+  def demandes
+    @adverts = Advert.all.where(role: 0)
+  end
+
   def show
     @advert = Advert.find(params[:id])
   end
@@ -16,6 +24,7 @@ class AdvertsController < ApplicationController
 
   def create
     @advert = Advert.new(params_advert)
+    #binding.pry
     if @advert.save
       redirect_to advert_path(@advert)
     else
@@ -42,7 +51,7 @@ class AdvertsController < ApplicationController
   private
 
   def params_advert
-    params.require(:advert).permit(:type, :title, :description, :price, photos: [])
+    params.require(:advert).permit(:type, :title, :description, :price, :role, :category_id, photos: [])
   end
 
   def set_advert
