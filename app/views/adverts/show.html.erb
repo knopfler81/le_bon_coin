@@ -1,0 +1,6 @@
+<h1><%= @advert.title %></h1>
+<p><%= @advert.description %></p>
+<h4><b><%= @advert.price %>€</b></h4>
+<h4><%= @advert.location %></h4>
+
+<%= link_to "retour à la liste", adverts_path, class: "btn btn-primary"  %>
