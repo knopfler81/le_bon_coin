@@ -24,7 +24,7 @@ class AdvertsController < ApplicationController
 
   def create
     @advert = Advert.new(params_advert)
-    #binding.pry
+    @advert.user = current_user
     if @advert.save
       redirect_to advert_path(@advert)
     else
