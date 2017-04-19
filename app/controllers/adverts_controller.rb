@@ -17,7 +17,7 @@ class AdvertsController < ApplicationController
   def create
     @advert = Advert.new(params_advert)
     if @advert.save
-      redirect_to arvert_path(@advert)
+      redirect_to advert_path(@advert)
     else
       render :new
     end
