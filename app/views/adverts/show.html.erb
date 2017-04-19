@@ -1,3 +1,4 @@
+<% if @advert.published? %>
 <div class="col-xs-12">
   <h1><%= @advert.title %></h1>
   <p><%= @advert.description %></p>
@@ -8,6 +9,7 @@
           {:width=>400, :height=>300, crop: :fill}] %>
   <% end %>
 </div>
+<% end %>
 
 
 <%= link_to "retour à la liste", adverts_path, class: "btn btn-primary"  %>
