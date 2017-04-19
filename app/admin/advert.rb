@@ -1,4 +1,4 @@
-ActiveAdmin.register Advert do
-  belongs_to :user
-  permit_params :title, :description # etc...
+ActiveAdmin.register Advert, as: "Annonces" do
+
+  permit_params :type, :title, :description, :price, photos: []
 end
