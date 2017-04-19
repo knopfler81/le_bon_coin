@@ -3,7 +3,7 @@ class Advert < ApplicationRecord
 
   #validates :type, presence: true
   validates :title, presence: true, length: {minimum: 15}
-  validates :description, presence: true, length: {minimum: 200}
+  validates :description, presence: true, length: {minimum: 80}
   validates :price, presence: true
   #validates :location, presence: true
 

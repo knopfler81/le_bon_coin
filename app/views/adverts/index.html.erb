@@ -1,6 +1,8 @@
+<%= link_to "Déposer une annonce", new_advert_path, class: "btn btn-primary"  %>
+
 <% @adverts.each do |advert| %>
-
-  <%= advert.title %>
-  <%= advert.price %>
-
+  <%= link_to advert_path(advert) do  %>
+    <%= advert.title %>
+    <%= advert.price %>
+  <% end %>
 <% end %>
