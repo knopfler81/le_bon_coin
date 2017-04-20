@@ -8,8 +8,15 @@
     <%= cl_image_tag photo.path, :transformation=>[
           {:width=>400, :height=>300, crop: :fill}] %>
   <% end %>
+    <h4>Contacter le vendeur:</h4>
+<ul class="list-unstyled">
+  <li><%= @advert.user.phone %></li>
+  <li><%= mail_to "envoyer un email", @advert.user.email %></li>
+</ul>
+
 </div>
 <% end %>
 
 
 <%= link_to "retour à la liste", adverts_path, class: "btn btn-primary"  %>
+
