@@ -1,5 +1,5 @@
 <% if current_user.id == @user.id %>
-
+  <h2>Mes données personnelles</h2>
   <h5><b>Prénom</b>:   <%= @user.first_name? ? @user.first_name : "N'a pas été renseigné" %></h5>
   <h5><b>Nom</b>:      <%= @user.last_name? ? @user.last_name : "N'a pas été renseigné" %></h5>
   <h5><b>Pseudo</b>:   <%= @user.nickname? ? @user.nickname : "N'a pas été renseigné" %></h5>
