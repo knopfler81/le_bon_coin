@@ -12,6 +12,6 @@ u.save
 
 ## localhost:3000/admin
 
-## Le modérateur peut aller sur une annonce et la marqué à publier pour que cette derniere s'affiche sur le site
+## Le modérateur peut aller sur une annonce et la marquer à publier pour que cette derniere s'affiche sur le site
 
 
