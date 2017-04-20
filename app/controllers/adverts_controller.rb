@@ -3,7 +3,8 @@ class AdvertsController < ApplicationController
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
 
   def index
-    @adverts = Advert.all
+    filter_adverts if params[:query].present?
+    @adverts ||= Advert.all
   end
 
   def offers
@@ -56,5 +57,10 @@ class AdvertsController < ApplicationController
 
   def set_advert
     @advert = Advert.find(params[:id])
+  end
+
+  def filter_adverts
+    @adverts = Advert.search(params[:query][:keyword]).includes(:category) if params[:query][:keyword].present?
+    @adverts = Advert.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
   end
 end
