@@ -1,5 +1,5 @@
 
-<div class="col-xs-12 padded">
+<div class="col-xs-10 col-xs-offset-1 padded">
   <%= simple_form_for :query, url: adverts_path, method: :get,  wrapper: :inline_form, html: {class: 'form-inline'} do |f| %>
     <%= f.input  :category, collection: (Category.all.map {|c| c.name}) ,  prompt: "Choisissez une catégorie" %>
     <%= f.input  :keyword, placeholder: "Mots clés" %>
@@ -7,19 +7,6 @@
     <%= link_to "Déposer une annonce", new_advert_path, class: "btn btn-primary"  %>
   <% end %>
   </div>
-  <div class="col-xs-12">
 
-    <br>
-    <% @adverts.each do |advert| %>
-      <% if advert.published? %>
-        <%= link_to advert_path(advert) do  %>
-          <h4> <%= advert.title %></h4>
-          <b><%= advert.price %></b>
-          <% advert.photos.each do |photo| %>
-            <%= cl_image_tag photo.path, width: 250, height: 200, crop:"fill" %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
+<%= render 'adverts' %>
 
